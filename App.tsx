@@ -336,7 +336,15 @@ const MealDetailModal = ({ meal, onClose }: { meal: MealItem | null, onClose: ()
 };
 
 // --- Level 3: Meal Timeline Item Redesigned ---
-const MealTimelineItem = ({ meal, onClick, index, showTime, planType }: { meal: MealItem, onClick: () => void, index: number, showTime: boolean, planType: PlanType }) => {
+interface MealTimelineItemProps {
+  meal: MealItem;
+  onClick: () => void;
+  index: number;
+  showTime: boolean;
+  planType: PlanType;
+}
+
+const MealTimelineItem: React.FC<MealTimelineItemProps> = ({ meal, onClick, index, showTime, planType }) => {
   const isMain = meal.type === 'MAIN';
   const nutrition = calculateMealNutrition(meal);
   
